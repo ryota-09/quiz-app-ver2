@@ -13,7 +13,7 @@ export default new Vuex.Store({
     user: new User(0, "", 0, 0),
     userList: new Array<User>(),
     quizList: new Array<Quiz>(),
-    isLogedin: false
+    isLogedIn: false
   },
   actions: {
     async getResults(context){
@@ -60,7 +60,17 @@ export default new Vuex.Store({
           const shuffledArray = shuffle([quiz.correct_answer, ...quiz.incorrect_answers]);
           newArray.push(new ShuffledOptionQuiz(quiz.question, shuffledArray, quiz.correct_answer));
         }
+        console.log(newArray);
         return newArray;
+    },
+    getUser(state): User{
+      return state.user;
+    },
+    getUserList(state): Array<User>{
+      return state.userList;
+    },
+    getIsLogedIn(state): boolean{
+      return state.isLogedIn;
     }
   }
 })
