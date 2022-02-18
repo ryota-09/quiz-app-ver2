@@ -55,7 +55,6 @@ export default new Vuex.Store({
           }
           return copiedArray;
         };
-
         for(const quiz of state.quizList){
           const shuffledArray = shuffle([quiz.correct_answer, ...quiz.incorrect_answers]);
           newArray.push(new ShuffledOptionQuiz(quiz.question, shuffledArray, quiz.correct_answer));
